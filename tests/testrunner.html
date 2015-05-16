@@ -5,6 +5,9 @@
   <link rel="stylesheet" href="../node_modules/mocha/mocha.css" />
 </head>
 <body>
+
+  <p class="testElement">Vivamus gravida, erat eget feugiat tristique, felis elit sollicitudin ante, vitae interdum purus libero in metus. Donec commodo neque non pulvinar sodales. In in congue justo, at semper quam. Morbi mattis, tortor in vestibulum tempor, nisl nisl lacinia ex, pellentesque auctor tellus orci in dui. Sed a tempus lorem. Proin ut est at nibh pulvinar convallis. Nulla sodales nec odio eget venenatis. Donec sollicitudin nibh sem, at dignissim purus sodales sed. Vivamus eget venenatis turpis. Pellentesque quis nunc quam. Morbi magna lacus, viverra ut auctor id, elementum non nulla. Donec ut nisi ut lectus commodo ullamcorper quis ut augue. Pellentesque id diam et neque auctor malesuada nec ut ligula. Donec vel sagittis neque. Sed mauris tortor, auctor quis semper a, efficitur a sapien. Phasellus eu lacinia libero.</p>
+
   <div id="mocha"></div>
   <script src="../node_modules/mocha/mocha.js"></script>
   <script src="../node_modules/chai/chai.js"></script>
@@ -13,6 +16,8 @@
 <script>
   mocha.setup('bdd')
   mocha.reporter('html');
+  should = chai.should();
+  expect = chai.expect;
 </script>
 
 <!-- Tests -->
@@ -23,6 +28,7 @@
     if (navigator.userAgent.indexOf('PhantomJS') < 0) {
       mocha.run();
     }
+   // if (window.mochaPhantomJS) { mochaPhantomJS.run(); } else { mocha.run(); }
   </script>
 </body>
 </html>

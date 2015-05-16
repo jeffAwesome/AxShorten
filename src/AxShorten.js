@@ -1,7 +1,8 @@
 var AxShorten = function AxShorten(options) {
   this.elem = options.elem;
-  this.count = options.count || 100;
+  this.characterLimit = options.count || 100;
 
-   console.log(this.elem);
-   console.log(this.count);
+  /* We need to grab the length of the element content */
+  var content = this.elem.textContent;
+  var contentLength = this.elem.textContent.length;
 }
