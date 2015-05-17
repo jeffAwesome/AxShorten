@@ -24,3 +24,20 @@ It currently does this by setting a character limit, but I have plans to add fun
   new AxShorten({elem: exampleElement});
 
 ```
+
+
+###HISTORY
+AxShorten is based off a jquery plugin that i've used and contributed to.
+
+I was refactoring it because I needed specific functionality, less then the simple
+plugin gave. This was the result of that.
+
+
+
+
+###TODOS
+* Accept jQuery elements
+* Allow shorten to work with height based options.
+
+
+
