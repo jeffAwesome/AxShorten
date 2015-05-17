@@ -11,15 +11,15 @@ It currently does this by setting a character limit, but I have plans to add fun
 ##EXAMPLE USAGE
 
 ```
-  // Get Reference to  Element first
   var exampleElement = document.querySelector('.element-container');
   new AxShorten({elem: exampleElement, characterLimit: 150});
 
-  /* 
-  	This will shorten the element to 150 characters.
-  	the default character limit is 100.  
-  */
+'''
+The above example will shorten your text block to 150 characters.
 
+The default character limit is 100 characters. You can leave this option
+off and have your text block shortened to 100 characters.
+'''
 
   new AxShorten({elem: exampleElement});
 
