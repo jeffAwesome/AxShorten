@@ -35,7 +35,7 @@ AxShorten = (function() {
   var checkLength = function(contentLength) {
     if (this.contentLength > this.characterLimit) {
         createNewContent.call(this);
-    };
+    }
   };
 
   var createNewContent = function() {
@@ -54,12 +54,13 @@ AxShorten = (function() {
   var parseContentForNonHtml = function() {
   	this.charactersToBeShown = this.originalContent.substr(0, this.characterLimit);
   	returnShortContent.call(this);
-  }
+  };
 
   var parseContentForHtml = function() {
+  	var i = null,
+  	    r = null;
 
-
-	for (var i = 0, r = 0; r <= this.characterLimit; i++) {
+	for (i = 0, r = 0; r <= this.characterLimit; i++) {
 		formatShortContent.call(this, i);
 
 	    if (isInTag && this.originalContent.charAt(i) == '>') {
