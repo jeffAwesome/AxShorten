@@ -15,17 +15,20 @@ The default and simple way to use AxShorten
 The default character limit is 100 characters. You can leave this option
 off and have your text block shortened to 100 characters.
 
-	new AxShorten({elem: exampleElement});
 
+```javascript
+	new AxShorten({elem: exampleElement});
+```
 
 
 You can define your own character limit
 
 The below example will shorten your text block to 150 characters.
 
+```javascript
 	var exampleElement = document.querySelector('.element-container');
 	new AxShorten({elem: exampleElement, characterLimit: 150});
-
+```
 
 
 
