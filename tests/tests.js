@@ -45,7 +45,7 @@ describe('AxShorten', function() {
      };
 
      var newElem = new AxShorten(options);
-     expect(newElem.newContent).to.exist;
+     expect(newElem.charactersToBeShown).to.exist;
   });
 
   it('new content should have a length', function() {
@@ -54,7 +54,7 @@ describe('AxShorten', function() {
      };
 
      var newElem = new AxShorten(options);
-     expect(newElem.newContent.length).to.equal(newElem.characterLimit);
+     expect(newElem.charactersToBeShown.length).to.equal(newElem.characterLimit);
   });
 
   it('should shorten the content of the targeted dom element', function() {
