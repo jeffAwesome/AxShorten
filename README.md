@@ -27,7 +27,8 @@ It currently does this by setting a character limit, but I have plans to add fun
 
 
 ###HISTORY
-AxShorten is based off a jquery plugin that i've used and contributed to.
+AxShorten is based off a jquery plugin that i've used and contributed to,
+you can view that plugin at [jquery.shorten github](https://github.com/viralpatel/jquery.shorten "jquery.shorten")
 
 I was refactoring it because I needed specific functionality, less then the simple
 plugin gave. This was the result of that.
