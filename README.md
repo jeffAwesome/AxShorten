@@ -33,9 +33,7 @@ The below example will shorten your text block to 150 characters.
 AxShorten is based off a jquery plugin that i've used and contributed to,
 you can view that plugin at [jquery.shorten github](https://github.com/viralpatel/jquery.shorten "jquery.shorten")
 
-I was refactoring it because I needed specific functionality, less then the simple
-plugin gave. This was the result of that.
-
+I was refactoring it because I needed even less functionality then the current plugin. As I was refactoring I realized I could create a general purpose tool for me, and for anyone else who might need "less" when it came to shortening text.
 
 
 
