@@ -88,7 +88,7 @@ AxShorten = (function() {
   };
 
   var checkForEndingHtmlTag = function(indexOfCharacter) {
-    if (isInTag && this.originalContent.charAt(indexOfCharacter) == '>') {
+    if (isInTag && this.originalContent.charAt(indexOfCharacter) === '>') {
       isInTag = false;
     }
   };
@@ -109,14 +109,14 @@ AxShorten = (function() {
   };
 
   var formatShortContent = function(indexOfCharacter) {
-    if (this.newContent[indexOfCharacter] == '<' && !isInTag) {
+    if (this.newContent[indexOfCharacter] === '<' && !isInTag) {
       isInTag = true;
 
       // This could be "tag" or "/tag"
       tagName = this.originalContent.substring(indexOfCharacter + 1, this.originalContent.indexOf('>', indexOfCharacter));
 
     // If its a closing tag
-      if (tagName[0] == '/') {
+      if (tagName[0] === '/') {
 
 	if (tagName != '/' + openTags[0]) {
 	  this.errMsg = 'ERROR en HTML: the top of the stack should be the tag that closes';
