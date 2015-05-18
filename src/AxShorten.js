@@ -7,13 +7,12 @@ AxShorten = (function() {
   //-------------------------------
 
   var AC = function (options) {
-    this.elem = options.elem;
     this.characterLimit = options.characterLimit || 100;
     this.originalContent = '';
     this.contentLength = 0;
     this.newContent = '';
     this.charactersToBeShown = '';
-    init.call(this);
+    init.call(this, options.elem);
   };
 
   //-------------------------------
@@ -26,11 +25,21 @@ AxShorten = (function() {
   var tagName = null;
 
 
-  var init = function() {
+  var init = function(elem) {
+	  this.elem = assignElement(elem);
     this.originalContent = this.elem.innerHTML;
     this.contentLength = this.elem.innerHTML.length;
     checkLength.call(this, this.contentLength);
   };
+
+	var assignElement = function(elem) {
+    if (elem.length) {
+      return elem[0];
+    } else {
+      return elem;
+    }
+  };
+
 
   var checkLength = function(contentLength) {
     if (this.contentLength > this.characterLimit) {
