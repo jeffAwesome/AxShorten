@@ -30,6 +30,15 @@ The below example will shorten your text block to 150 characters.
 	new AxShorten({elem: exampleElement, characterLimit: 150});
 ```
 
+##Works with jQuery Selectors
+
+Below is an example using a jQuery selector
+
+```javascript
+	var exampleElement = $('.element-container');
+	new AxShorten({elem: exampleElement, characterLimit: 150});
+```
+
 
 
 ###HISTORY
@@ -41,7 +50,6 @@ I was refactoring it because I needed even less functionality then the current p
 
 
 ###TODOS
-* Accept jQuery elements
 * Allow shorten to work with height based options.
 
 

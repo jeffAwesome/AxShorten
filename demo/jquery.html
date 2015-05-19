@@ -4,16 +4,16 @@
   <title>Mocha Tests</title>
 </head>
 <body>
-
-  <h1>Basic Example</h1>
+  <h2>The jQuery Example</h2>
   <div class="testElementContainer">
   <p class="testElement">Vivamus gravida, erat eget feugiat tristique, felis elit sollicitudin ante, vitae interdum purus libero in metus. Donec commodo neque non pulvinar sodales. In in congue justo, at semper quam. Morbi mattis, tortor in vestibulum tempor, nisl nisl lacinia ex, pellentesque auctor tellus orci in dui. Sed a tempus lorem. Proin ut est at nibh pulvinar convallis. Nulla sodales nec odio eget venenatis. Donec sollicitudin nibh sem, at dignissim purus sodales sed. Vivamus eget venenatis turpis. Pellentesque quis nunc quam. Morbi magna lacus, viverra ut auctor id, elementum non nulla. Donec ut nisi ut lectus commodo ullamcorper quis ut augue. Pellentesque id diam et neque auctor malesuada nec ut ligula. Donec vel sagittis neque. Sed mauris tortor, auctor quis semper a, efficitur a sapien. Phasellus eu lacinia libero.</p>
 </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="../src/AxShorten.js"></script>
 
-  <script src="../src/AxShorten.js"></script>
 
   <script>
-     var newElem = document.querySelector(".testElementContainer");
+     var newElem = $(".testElementContainer");
      var newShorten = new AxShorten({elem: newElem, characterLimit: 250});
   </script>
 </body>
