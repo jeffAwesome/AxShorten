@@ -8,6 +8,7 @@ AxShorten = (function() {
 
   var AC = function (options) {
     this.characterLimit = options.characterLimit || 100;
+    this.useHeight = options.useHeight || false;
     this.originalContent = '';
     this.contentLength = 0;
     this.newContent = '';
@@ -26,17 +27,25 @@ AxShorten = (function() {
 
 
   var init = function(elem) {
-	  this.elem = assignElement(elem);
+    this.elem = assignElement(elem);
     this.originalContent = this.elem.innerHTML;
     this.contentLength = this.elem.innerHTML.length;
-    checkLength.call(this, this.contentLength);
+    setupShorten.call(this)
   };
 
-	var assignElement = function(elem) {
+  var assignElement = function(elem) {
     if (elem.length) {
       return elem[0];
     } else {
       return elem;
+    }
+  };
+
+  var setupShorten = function() {
+    if (this.useHeight) {
+
+    } else {
+      checkLength.call(this, this.contentLength);
     }
   };
 
