@@ -43,12 +43,17 @@ AxShorten = (function() {
 
   var setupShorten = function() {
     if (this.useHeight) {
-
+      checkHeight.call(this, this.contentHeight);
     } else {
       checkLength.call(this, this.contentLength);
     }
   };
 
+  var checkHeight = function(contentHeight) {
+    if (this.contentHeight < this.heightLimit) {
+      createNewContent.call(this);
+    }
+  };
 
   var checkLength = function(contentLength) {
     if (this.contentLength > this.characterLimit) {
@@ -94,7 +99,7 @@ AxShorten = (function() {
       else {
         r++;
         if (currentSizeOfCharactersToBeShown <= this.characterLimit) {
-          this.charactersToBeShown += this.originalContent.charAt(i); // Fix to ie 7 not allowing you to reference string characters using the []
+          this.charactersToBeShown += this.originalContent.charAt(i);
           currentSizeOfCharactersToBeShown++;
 	} else {
           // Now I have the characters needed
@@ -154,8 +159,6 @@ AxShorten = (function() {
   var returnShortContent = function() {
     var html = '<div class="shortcontent">' + this.charactersToBeShown +
                     '...</div>';
-
-
      this.elem.outerHTML = html;
   }
 
