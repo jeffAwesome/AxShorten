@@ -69,4 +69,29 @@ describe('AxShorten', function() {
      expect(elem.innerHTML.length).to.be.below(newElem.characterLimit);
   });
 
+  it('should accept jquery elements', function() {
+     var options = {
+           elem: $('.testElement7')
+     };
+
+     var newElem = new AxShorten(options);
+
+     var elem = document.querySelector('.testElement7')
+
+     expect(newElem.elem).to_exist;
+  });
+
+  it('should accept an array of elements and only use the first', function() {
+     var options = {
+           elem: document.querySelectorAll('.testElementsArray')
+     };
+
+     var newElem = new AxShorten(options);
+
+
+     expect(newElem.elem).to_exist;
+  });
+
+
+
 });
