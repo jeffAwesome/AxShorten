@@ -8,12 +8,16 @@ AxShorten = (function() {
 
   var AC = function (options) {
     this.characterLimit = options.characterLimit || 100;
-    this.useHeight = options.useHeight || false;
+    this.isHeightBased = options.isHeightBased || false;
     this.originalContent = '';
     this.contentLength = 0;
     this.newContent = '';
     this.charactersToBeShown = '';
+    this.originalElemHeight = 0;
+    this.heightLimit = options.height || 100
+
     init.call(this, options.elem);
+
   };
 
   //-------------------------------
@@ -30,6 +34,8 @@ AxShorten = (function() {
     this.elem = assignElement(elem);
     this.originalContent = this.elem.innerHTML;
     this.contentLength = this.elem.innerHTML.length;
+    this.originalContentHeight = this.elem.offsetHeight;
+    console.log(this.originalContentHeight);
     setupShorten.call(this)
   };
 
@@ -42,15 +48,15 @@ AxShorten = (function() {
   };
 
   var setupShorten = function() {
-    if (this.useHeight) {
+    if (this.isHeightBased) {
       checkHeight.call(this, this.contentHeight);
     } else {
       checkLength.call(this, this.contentLength);
     }
   };
 
-  var checkHeight = function(contentHeight) {
-    if (this.contentHeight < this.heightLimit) {
+  var checkHeight = function() {
+    if (this.originalContentHeight > this.heightLimit) {
       createNewContent.call(this);
     }
   };
@@ -62,8 +68,32 @@ AxShorten = (function() {
   };
 
   var createNewContent = function() {
-    this.newContent = this.originalContent.substr(0, this.characterLimit);
+    if (this.isHeightBased) {
+      getHeightCharacterLimit.call(this)
+    } else {
+      this.newContent = this.originalContent.substr(0, this.characterLimit);
+    }
     parseContent.call(this);
+  };
+
+  var getHeightCharacterLimit = function() {
+    var body = document.querySelector('body');
+    var newContent = this.elem.cloneNode(true);
+    newContent.style.visibility = 'hidden';
+    body.appendChild(newContent);
+
+    console.log(newContent.offsetHeight);
+
+    var copyOriginalContentHeight = newContent.offsetHeight;
+    var content = '';
+
+    while (copyOriginalContentHeight > this.heightLimit) {
+      copyOriginalContentHeight = newContent.offsetHeight;
+      console.log(newContent.offsetHeight);
+      break;
+    }
+
+   console.log(content);
   };
 
   var parseContent = function() {
@@ -124,7 +154,6 @@ AxShorten = (function() {
 
   var closeOpenTags = function() {
     for (var j = 0; j < openTags.length; j++) {
-      //console.log('Cierro tag ' + openTags[j]);
       this.newContent+= '</' + openTags[j] + '>'; // Close all tags that were opened
 
      // You could shift the tag from the stack to check if you end with an empty stack, that means you have closed all open tags
@@ -165,5 +194,4 @@ AxShorten = (function() {
   return AC;
 
 }());
-
 
